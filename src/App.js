@@ -1,39 +1,29 @@
-import React,{useState} from 'react'
-import TodoList from './TodoList';
+import React from 'react'
 
-const App = () => {
-  const [task,setTask] = useState("");
-  const [todos,setTodos] = useState([]);
 
-  const changeHandler = e =>{
-    setTask(e.target.value)
-  }
-  const submitHandler = e =>{
-    e.preventDefault();
-    const newTodos = [...todos,task];
-    setTodos(newTodos);
-    setTask("");
-  }
-  const deleteHandler = (indexValue) =>{
-    const newTodos = todos.filter((todo,index) => index !== indexValue);
-    setTodos(newTodos);
-  }
-  return (
-    <div>
-      <center>
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">Todo Management Application</h5>
-            <form onSubmit={submitHandler}>
-              <input size="30" type="text" name="task" value={task} onChange={changeHandler} /> &nbsp;&nbsp;
-              <input type="submit" value="Add" name="Add"/>
-            </form>
-            <TodoList todolist={todos} deleteHandler={deleteHandler}/>
-          </div>
-        </div>
-      </center>
+function App()
+{
+  return(
+    <div className = "TaskManger">
+      <h1>Task Manger</h1>
+
+      <div className = "Tasks-set">
+        <div className = "Title-input"><input type = "text" placeholder="Enter your title here"/></div>
+        <div className = "Description-input"><input type = "text" placeholder="Enter your description here"/></div>
+        <div className = "Add button"><button type="button" className="primaryButton"> Add </button></div>
+      </div>
+      <div className = "Tasks filteration buttons">
+        <button>Incomplete Tasks</button>
+        <button>completed Tasks</button>
+        <button>All Tasks </button>
+      </div>
+      <div className = "List of tasks">
+           <div className = "tasksList"> 
+                  <h3> Task1 </h3>
+                  <p> Jesus will protect me</p>
+            </div>
+      </div>
     </div>
   )
 }
-
-export default App
+export default App;
