@@ -1,7 +1,34 @@
+body {
+  background-color: #1f1e1e;
+}
 
-h1{
+h1 {
+  color: white;
   text-align: center;
 }
-.Tasks-set{
-  width:fit-content;
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input {
+  border: 1px solid #ccc;
+}
+
+button {
+
+  border: none;
+  background-color: #30ca57;
+  color: white;
+
+}
+
+li {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }

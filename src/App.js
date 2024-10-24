@@ -1,29 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react';
+import './App.css';
+import './App.css';
+import TaskForm from './TaskForm';
+import TaskList from './TaskList';
 
+function App(){
+    const [tasks,setTasks] = useState([]);
+    const [filter,setFilter] = useState('all');
 
-function App()
-{
-  return(
-    <div className = "TaskManger">
-      <h1>Task Manger</h1>
-
-      <div className = "Tasks-set">
-        <div className = "Title-input"><input type = "text" placeholder="Enter your title here"/></div>
-        <div className = "Description-input"><input type = "text" placeholder="Enter your description here"/></div>
-        <div className = "Add button"><button type="button" className="primaryButton"> Add </button></div>
-      </div>
-      <div className = "Tasks filteration buttons">
-        <button>Incomplete Tasks</button>
-        <button>completed Tasks</button>
-        <button>All Tasks </button>
-      </div>
-      <div className = "List of tasks">
-           <div className = "tasksList"> 
-                  <h3> Task1 </h3>
-                  <p> Jesus will protect me</p>
+    function addTask(title, description)
+    {
+        const newTask={id:Date.now(),title,description,completed:false};
+        setTasks([...tasks,newTask]);
+    };
+    function toggleComplete(id) 
+    {
+      const updatedTasks = tasks.find(task=>task.id===id);
+      updatedTasks.completed=!updatedTasks.completed;
+      setTasks([...tasks]);
+    };
+    function deleteTask(id)
+    {
+      setTasks(tasks.filter(task=> task.id!==id));
+    };
+    function filteredTasks()
+    {
+        switch (filter) {
+            case 'completed':
+                return tasks.filter(task=>task.completed);
+            case 'incomplete':
+                return tasks.filter(task=>!task.completed);
+            default:
+                return tasks;
+        }
+    };
+    return (
+        <div>
+            <h1>Task Manager</h1>
+            <TaskForm addTask={addTask} />
+            <div>
+                <button onClick={() => setFilter('all')}>All Tasks</button>&nbsp;
+                <button onClick={() => setFilter('completed')}>Completed Tasks</button>&nbsp;
+                <button onClick={() => setFilter('incomplete')}>Incomplete Tasks</button>
             </div>
-      </div>
-    </div>
-  )
-}
+            <TaskList 
+                tasks={filteredTasks()} 
+                toggleComplete={toggleComplete} 
+                deleteTask={deleteTask} 
+            />
+        </div>
+    );
+};
 export default App;
