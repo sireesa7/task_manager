@@ -1,15 +1,15 @@
 # Task Manager
 
 ## Overview
-Task Manager is a simple React application that allows users to manage their tasks efficiently. Users can add new tasks, mark them as completed, and delete tasks from their list. The app also includes a filtering feature to view all tasks, completed tasks, or incomplete tasks.
+
+Task Manager is a React app that helps users efficiently manage tasks. It allows users to add, complete, and delete tasks, along with a filtering feature to view all, completed, or incomplete tasks.
 
 ## Features
-- **Add Task**: Users can input a task description and add it to the task list.
-- **Task List**: Displays all added tasks with the ability to check them off as completed.
-- **Delete Task**: Remove tasks from the list easily.
-- **Completion Indicator**: Completed tasks are visually marked with a line-through effect.
-- **Filtering**: Users can filter tasks to view all, completed, or incomplete tasks.
-
+- **Add Task**: Users can enter and add task descriptions.
+- **Task List**: Shows all tasks with an option to mark them as completed.
+- **Delete Task**: Easily remove tasks from the list.
+- **Completion Indicator**: Completed tasks are shown with a line-through.
+- **Filtering**: Users can filter tasks by all, completed, or incomplete.
 ## Getting Started
 
 ### Prerequisites
